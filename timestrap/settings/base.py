@@ -115,6 +115,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # http://www.django-rest-framework.org/
 
 REST_FRAMEWORK = {
+	"DEFAULT_AUTHENTICATION_CLASSES": (
+       'rest_framework.authentication.BasicAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
+       'rest_framework.authentication.SessionAuthentication',
+	),
     "DEFAULT_PERMISSION_CLASSES": ["api.permissions.TimestrapDjangoModelPermissions"],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",  # noqa: E501
     "PAGE_SIZE": 100,
