@@ -1,14 +1,6 @@
-version: '3'
+version: "3"
 
 services:
-  db:
-    image: postgres
-    environment:
-      - PGDATA=/db-data
-    volumes:
-      - db:/db-data
-  redis:
-    image: redis
   web:
     build: .
     command: daphne timestrap.asgi:application --port 80 --bind 0.0.0.0 -v2
@@ -18,7 +10,21 @@ services:
       - db
       - redis
     environment:
+      - DJANGO_SETTINGS_MODULE=timestrap.settings.docker
       - SECRET_KEY=CHANGE-ME
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres
+    environment:
+      - PGDATA=/db-data
+    volumes:
+      - db:/db-data
+
+  redis:
+    image: redis
 
 volumes:
   db:
