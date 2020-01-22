@@ -18,7 +18,7 @@ export default {
     },
     getEntriesByDay: state => {
       let allDays = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 14; i++) {
         let day = Vue.prototype.$moment().subtract(i, 'day').format('YYYY-MM-DD');
         allDays.push(day);
       }
