@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 import fetch from '../../fetch';
 
+const daysBack = 14;
 
 export default {
   namespaced: true,
@@ -18,7 +19,7 @@ export default {
     },
     getEntriesByDay: state => {
       let allDays = [];
-      for (let i = 0; i < 14; i++) {
+      for (let i = 0; i < daysBack; i++) {
         let day = Vue.prototype.$moment().subtract(i, 'day').format('YYYY-MM-DD');
         allDays.push(day);
       }
@@ -59,7 +60,7 @@ export default {
       let getOptions = {
         params: {
           user: timestrapConfig.USER.ID,
-          min_date: Vue.prototype.$moment().subtract(5, 'day').format('YYYY-MM-DD'),
+          min_date: Vue.prototype.$moment().subtract(daysBack, 'day').format('YYYY-MM-DD'),
           max_date: Vue.prototype.$moment().format('YYYY-MM-DD'),
         },
       };
