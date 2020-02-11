@@ -45,6 +45,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ("name", "hourly_rate")
+    list_display = ("name", "hourly_rate", "pk")
     list_filter = ("sites",)
     search_fields = ("name",)
