@@ -37,7 +37,7 @@ class EntryResource(resources.ModelResource):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("name", "client", "archive")
+    list_display = ("name", "client", "archive", "pk")
     list_editable = ("archive",)
     list_filter = ("client", "archive")
     search_fields = ("name", "client")
