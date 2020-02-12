@@ -18,7 +18,7 @@ class EntryAdmin(admin.ModelAdmin):
     list_display = ("project", "user", "date", "duration")
     list_editable = ("date", "duration")
     list_filter = ("project", "project__client", "user", "date", "site")
-    search_fields = ("project", "project__client", "user", "note", "intra_id")
+    search_fields = ("project", "project__client", "user", "note")
     fieldsets = (
         (None, {"fields": ("project", "user")}),
         (
@@ -37,7 +37,7 @@ class EntryResource(resources.ModelResource):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("name", "client", "archive", "pk")
+    list_display = ("name", "client", "archive", "pk", "intra_id")
     list_editable = ("archive",)
     list_filter = ("client", "archive")
     search_fields = ("name", "client")
