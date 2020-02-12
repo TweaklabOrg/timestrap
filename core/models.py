@@ -46,6 +46,8 @@ class Project(models.Model):
         max_digits=10, decimal_places=2, blank=True, null=True
     )
 
+    intra_id = models.IntegerField(default=-1)
+
     class Meta:
         default_permissions = ("view", "add", "change", "delete")
         ordering = ["client", "-id"]
@@ -88,6 +90,8 @@ class Task(models.Model):
 
     objects = models.Manager()
     on_site = CurrentSiteManager()
+
+    intra_id = models.IntegerField(default=-1)
 
     class Meta:
         default_permissions = ("view", "add", "change", "delete")
