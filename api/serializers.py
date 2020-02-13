@@ -105,7 +105,7 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
-        fields = ("id", "url", "name", "hourly_rate")
+        fields = ("id", "url", "name", "hourly_rate", "intra_id")
 
 
 class EntrySerializer(serializers.HyperlinkedModelSerializer):
@@ -123,6 +123,5 @@ class EntrySerializer(serializers.HyperlinkedModelSerializer):
             "duration",
             "datetime_start",
             "datetime_end",
-            "note",
-            "intra_id"
+            "note"
         )
