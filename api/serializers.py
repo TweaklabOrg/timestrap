@@ -85,6 +85,7 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
             "total_entries",
             "total_duration",
             "percent_done",
+            "intra_id"
         )
 
     def get_queryset(self):
@@ -123,4 +124,5 @@ class EntrySerializer(serializers.HyperlinkedModelSerializer):
             "datetime_start",
             "datetime_end",
             "note",
+            "intra_id"
         )
