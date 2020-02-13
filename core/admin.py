@@ -17,7 +17,7 @@ class ClientAdmin(admin.ModelAdmin):
 class EntryAdmin(admin.ModelAdmin):
     list_display = ("project", "user", "date", "duration")
     list_editable = ("date", "duration")
-    list_filter = ("project", "project__client", "user", "date", "site")
+    list_filter = ("task", "project", "project__client", "user", "date", "site")
     search_fields = ("project", "project__client", "user", "note")
     fieldsets = (
         (None, {"fields": ("project", "user")}),
